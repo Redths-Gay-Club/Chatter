@@ -1,0 +1,10 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.7",
+  "package": "org.redthsgayclub.chatter.mixin",
+  "refmap": "mixins.chatter.refmap.json",
+  "injectors": {
+    "maxShiftBy": 5
+  },
+  "verbose": true
+}
