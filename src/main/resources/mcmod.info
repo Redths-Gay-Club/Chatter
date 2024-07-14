@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "${id}",
+    "name": "${name}",
+    "description": "download so you can be a shit talking master",
+    "version": "${version}",
+    "mcversion": "${mcVersionStr}",
+    "url": "https://github.com/Redths-Gay-Club/Chatter",
+    "updateUrl": "",
+    "authorList": [
+      "RTX4O9O"
+    ],
+    "credits": "",
+    "logoFile": "mod-icon.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
