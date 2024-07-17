@@ -6,10 +6,12 @@ import cc.polyfrost.oneconfig.utils.NetworkUtils;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Chatter {
     public static List<String> lines = Collections.emptyList();
     private static int n = 0;
+    private static final Random random = new Random();
 
     public static void load() {
         try {
@@ -21,10 +23,9 @@ public class Chatter {
     }
 
     public static void doChatter() {
-        if (n >= lines.size()) {
-            n = 0;
-        }
+        int min = 1;
+        int max = lines.size();
+        n = random.nextInt((max - min) + 1) + min;
         UChat.say(lines.get(n));
-        n++;
     }
 }
