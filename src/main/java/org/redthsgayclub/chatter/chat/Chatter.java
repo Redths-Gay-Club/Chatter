@@ -2,6 +2,7 @@ package org.redthsgayclub.chatter.chat;
 
 import cc.polyfrost.oneconfig.libs.universal.UChat;
 import cc.polyfrost.oneconfig.utils.NetworkUtils;
+import org.redthsgayclub.chatter.config.PolyConfig;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +16,8 @@ public class Chatter {
 
     public static void load() {
         try {
-            String string = NetworkUtils.getString("https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt");
+            String string = NetworkUtils.getString(PolyConfig.messagesSource);
+            if (string.equals("Default")) string = "https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt";
             lines = Arrays.asList(string.split("\n"));
         } catch (Exception e) {
             e.printStackTrace();

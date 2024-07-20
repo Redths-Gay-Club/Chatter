@@ -33,7 +33,7 @@ public class Chatter {
     public void onTick(RenderEvent event) {
         if(event.stage != Stage.START) return;
         if(System.currentTimeMillis() >= targetTime) {
-            targetTime = System.currentTimeMillis() + PolyConfig.spammingSpeed;
+            targetTime = System.currentTimeMillis() + PolyConfig.spammingSpeed*1000;
             if(PolyConfig.isChatting) {
                 org.redthsgayclub.chatter.chat.Chatter.doChatter();
             }

@@ -13,12 +13,17 @@ public class PolyConfig extends Config {
     )
     public static boolean isChatting = false;
 
-    @Slider(
-            name = "Spamming Speed (ms)",
-            min = 500, // Minimum value
-            max = 50000
+    @Text(
+            name = "Messages source"
     )
-    public static int spammingSpeed = 5000; // Default value
+    public static String messagesSource = "Default";
+
+    @Slider(
+            name = "Chatting Speed (sec)",
+            min = 1, // Minimum value
+            max = 60
+    )
+    public static int spammingSpeed = 5; // Default value
 
 
     public PolyConfig() {
