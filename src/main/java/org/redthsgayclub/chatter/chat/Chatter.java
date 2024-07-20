@@ -13,12 +13,13 @@ public class Chatter {
     public static List<String> lines = Collections.emptyList();
     private static int n = 0;
     private static final Random random = new Random();
+    public static String loadedSource;
 
     public static void load() {
         try {
-            String string = NetworkUtils.getString(PolyConfig.messagesSource);
-            if (string.equals("Default")) string = "https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt";
-            lines = Arrays.asList(string.split("\n"));
+            loadedSource = NetworkUtils.getString(PolyConfig.messagesSource);
+            if (loadedSource.equals("Default")) loadedSource = "https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt";
+            lines = Arrays.asList(loadedSource.split("\n"));
         } catch (Exception e) {
             e.printStackTrace();
         }
