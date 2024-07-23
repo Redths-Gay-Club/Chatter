@@ -9,26 +9,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Chatter {
+public class Chatting {
     public static List<String> lines = Collections.emptyList();
     private static int n = 0;
     private static final Random random = new Random();
-    public static String loadedSource;
 
     public static void load() {
         try {
-            loadedSource = NetworkUtils.getString(PolyConfig.messagesSource);
-            if (loadedSource.equals("Default")) loadedSource = "https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt";
-            lines = Arrays.asList(loadedSource.split("\n"));
+            String url = PolyConfig.messagesSource.equals("Default") ? "https://raw.githubusercontent.com/Redths-Gay-Club/Chatter/main/src/main/resources/text.txt" : PolyConfig.messagesSource;
+            lines = Arrays.asList(NetworkUtils.getString(url).split("\n"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void doChatter() {
-        int min = 1;
-        int max = lines.size();
-        n = random.nextInt((max - min) + 1) + min;
+        n = random.nextInt(lines.size() - 1);
         UChat.say(lines.get(n));
     }
 }

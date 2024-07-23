@@ -8,7 +8,7 @@ import org.redthsgayclub.chatter.config.PolyConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-import static org.redthsgayclub.chatter.chat.Chatter.*;
+import static org.redthsgayclub.chatter.chat.Chatting.*;
 
 @Mod(modid = Chatter.MODID, name = Chatter.NAME, version = Chatter.VERSION)
 public class Chatter {
@@ -29,22 +29,18 @@ public class Chatter {
         load();
         EventManager.INSTANCE.register(this);
         PolyConfig.isChatting = false;
+
     }
 
     @Subscribe
     public void onTick(RenderEvent event) {
         if(event.stage != Stage.START) return;
         if(System.currentTimeMillis() >= targetTime) {
-            targetTime = System.currentTimeMillis() + PolyConfig.spammingSpeed*1000;
-            if (!loadedSource.equals(PolyConfig.messagesSource)) {
-                load();
-            }
+            targetTime = System.currentTimeMillis() + PolyConfig.spammingSpeed * 1000L;
             if(PolyConfig.isChatting) {
                 doChatter();
             }
         }
     }
-
-
 
 }
